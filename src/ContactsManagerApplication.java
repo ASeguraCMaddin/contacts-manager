@@ -1,19 +1,21 @@
-package util;
 
 
-import util.Input;
-
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+
 
 public class ContactsManagerApplication {
 
     public static void main(String[] args) {
-        Input input = new Input();
+
+        Scanner sc = new Scanner();
         String userInput;
 
         System.out.println("Welcome to your Contacts Manager!");
@@ -22,7 +24,7 @@ public class ContactsManagerApplication {
         do {
             contactOptions();
             System.out.println("What would you like to do? ");
-            userInput = input.getString();
+            userInput = sc.next();
 
             if (userInput.equals("1")) {
                 showAllContacts();
@@ -54,16 +56,21 @@ public class ContactsManagerApplication {
         System.out.println("4 -===- Delete an existing Contact");
     }
 
-    public void showAllContacts () {
-//        Movie[] allMovies = MoviesArray.findAll();
-//        for (Movie movie : allMovies) {
-//            System.out.println("**---+---+---+---+---+---+---+---+---**");
-//            System.out.print("| ");
-//            System.out.println(movie.getNameIs() + " -- " + movie.getCategoryOf());
-//            System.out.print("| ");
-//            System.out.println("**---+---+---+---+---+---+---+---+---**");
-//
-//        }
+    public static List<String> showAllContacts() {
+        //creates filepath
+//        Path path = Paths.get(filepath);
+        Path contactsListPath = Paths.get("src", "contacts.txt");
+        List<String> contactsList = Files.readAllLines(contactsListPath);
+        for (int i = 0; i < contactsList.size(); i += 1) {
+            System.out.println("**---+---+---+---+---+---+---+---+---**");
+            System.out.print("| ");
+            System.out.println((i + 1) + ": " + contactsList.get(i));
+            System.out.print("| ");
+            System.out.println("**---+---+---+---+---+---+---+---+---**");
+        }
+        return null;
+    }
+
 
 
 //        Path contactsPath = Paths.get("util", "contacts.txt");
@@ -72,24 +79,18 @@ public class ContactsManagerApplication {
 //            System.out.println((i + 1) + ": " + contactsList.get(i));
 //        }
 
-        List<String> contactsClass = Files.readAllLines(Paths.get("util", "contacts.txt"));
 
-            for(int i = 0; i < contactsClass.size(); ++i) {
-                String Line = contactsClass.get(i);
-            System.out.printf("%s: %s", i + 1, line);
-        }
-    }
 
-    public void addContact() {
-        Input input = new Input();
-        String userInput;
-
-        Files.write(
-                Paths.get("util", "contacts.txt"),
-                Arrays.listOf(userInput), // list with one item
-                StandardOpenOption.APPEND
-        );
-    }
+//    public void addContact() {
+//        Input input = new Input();
+//        String userInput;
+//
+//        Files.write(
+//                Paths.get("util", "contacts.txt"),
+//                Arrays.listOf(userInput), // list with one item
+//                StandardOpenOption.APPEND
+//        );
+//    }
 
 
 
