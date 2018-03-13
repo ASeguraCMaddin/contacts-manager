@@ -3,9 +3,9 @@
 public class Contacts {
 
 
-    private String name;
+    public String name;
 
-    private double phoneNumber;
+    public double phoneNumber;
 
     public Contacts(String name, double phoneNumber) {
         this.name = name;
