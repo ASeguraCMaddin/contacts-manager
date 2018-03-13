@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +11,7 @@ public class ContactsManagerApplication {
 
     public static void main(String[] args) throws IOException {
 //        Input input = new Input();
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
 
         String userInput;
@@ -33,7 +32,6 @@ public class ContactsManagerApplication {
 
             } else if (userInput.equals("4")) {
 
-
             }
 
             System.out.println();
@@ -47,7 +45,8 @@ public class ContactsManagerApplication {
     }
 
 
-    public static void contactOptions() {
+
+    public static void contactOptions () {
         System.out.println("0 -===- Exit");
         System.out.println("1 -===- View all contacts.");
         System.out.println("2 -===- Add a new contact.");
@@ -55,16 +54,10 @@ public class ContactsManagerApplication {
         System.out.println("4 -===- Delete an existing Contact");
     }
 
-
-    public void showAllContacts() {
-//        Movie[] allMovies = MoviesArray.findAll();
-//        for (Movie movie : allMovies) {
-
     public static void showAllContacts() throws IOException {
         Path contactsListPath = Paths.get("src", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsListPath);
         for (int i = 0; i < contactsList.size(); ++i) {
-
 //            System.out.println("**---+---+---+---+---+---+---+---+---**");
 //            System.out.print("| ");
             System.out.println((i + 1) + ": " + contactsList.get(i));
@@ -83,15 +76,6 @@ public class ContactsManagerApplication {
 //        }
 
 
-        List<String> contactsClass = Files.readAllLines(Paths.get("util", "contacts.txt"));
-
-        for (int i = 0; i < contactsClass.size(); ++i) {
-            String Line = contactsClass.get(i);
-            System.out.printf("%s: %s", i + 1, line);
-        }
-    }
-
-
 
 //    public void addContact() {
 //        Input input = new Input();
@@ -103,5 +87,7 @@ public class ContactsManagerApplication {
 //                StandardOpenOption.APPEND
 //        );
 //    }
+
+
 
 }
