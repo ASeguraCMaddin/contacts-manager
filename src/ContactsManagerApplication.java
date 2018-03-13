@@ -1,4 +1,6 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -69,7 +71,7 @@ public class ContactsManagerApplication {
 //            String line = contactsList.get(i);
 
             System.out.println((i + 1) + ": " + contactsList.get(i));
-            String output = "";
+//            String output = "";
 //            output += String.format("%-7d", i);
 //            output += String.format("|%-9d", i * i);
 //            output += String.format("|%d", i * i * i);
@@ -106,17 +108,20 @@ public class ContactsManagerApplication {
         List<String> lines = Files.readAllLines(Paths.get("src", "contacts.txt"));
 //                List<String> newList = new ArrayList<>();
             for (String line : lines) {
-                if (line.equalsIgnoreCase(userInput)) {
-                    System.out.println(userInput + "was found!");
+                if (line.contains(userInput)) {
+                    System.out.println(userInput + " was found!");
                     System.out.println(line);
 //                    continue;
                     } else {
                     System.out.println("Your input does not match any contacts, Please try again ");
                     }
-//                        newList.add(line);
+//
                     }
-//                Files.write(Paths.get("data", "groceries.txt"), newList);
+//
             }
+
+
+
 
 
 
