@@ -19,7 +19,7 @@ public class ContactsManagerApplication {
 
         System.out.println("Welcome to your Contacts Manager!");
         System.out.println("Enter a number (0-4) to access the desired option!");
-git
+
         do {
             contactOptions();
             System.out.println("What would you like to do? ");
@@ -55,16 +55,16 @@ git
         System.out.println("4 -===- Delete an existing Contact");
     }
 
-<<<<<<< HEAD
+
     public void showAllContacts() {
 //        Movie[] allMovies = MoviesArray.findAll();
 //        for (Movie movie : allMovies) {
-=======
+
     public static void showAllContacts() throws IOException {
         Path contactsListPath = Paths.get("src", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsListPath);
         for (int i = 0; i < contactsList.size(); ++i) {
->>>>>>> ceb4958fad1a529bea508761c2e072468ce41dee
+
 //            System.out.println("**---+---+---+---+---+---+---+---+---**");
 //            System.out.print("| ");
             System.out.println((i + 1) + ": " + contactsList.get(i));
@@ -82,7 +82,7 @@ git
 //            System.out.println((i + 1) + ": " + contactsList.get(i));
 //        }
 
-<<<<<<< HEAD
+
         List<String> contactsClass = Files.readAllLines(Paths.get("util", "contacts.txt"));
 
         for (int i = 0; i < contactsClass.size(); ++i) {
@@ -90,8 +90,7 @@ git
             System.out.printf("%s: %s", i + 1, line);
         }
     }
-=======
->>>>>>> ceb4958fad1a529bea508761c2e072468ce41dee
+
 
 
 //    public void addContact() {
