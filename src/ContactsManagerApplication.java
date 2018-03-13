@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +11,7 @@ public class ContactsManagerApplication {
 
     public static void main(String[] args) throws IOException {
 //        Input input = new Input();
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
 
         String userInput;
