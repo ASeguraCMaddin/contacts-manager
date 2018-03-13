@@ -3,6 +3,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +29,7 @@ public class ContactsManagerApplication {
             if (userInput.equals("1")) {
                 showAllContacts();
             } else if (userInput.equals("2")) {
-
+                addContact();
             } else if (userInput.equals("3")) {
 
             } else if (userInput.equals("4")) {
@@ -58,35 +60,33 @@ public class ContactsManagerApplication {
         Path contactsListPath = Paths.get("src", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsListPath);
         for (int i = 0; i < contactsList.size(); ++i) {
-//            System.out.println("**---+---+---+---+---+---+---+---+---**");
-//            System.out.print("| ");
+//            String line = contactsList.get(i);
+            System.out.println("**---+---+---+---+---+---+---+---+---**");
+            System.out.print("| ");
             System.out.println((i + 1) + ": " + contactsList.get(i));
-//            System.out.print("| ");
-//            System.out.println("**---+---+---+---+---+---+---+---+---**");
+//            System.out.printf("%s: %s", i + 1, line);
+            System.out.print("| ");
+            System.out.println("**---+---+---+---+---+---+---+---+---**");
         }
 
     }
 
 
 
-//        Path contactsPath = Paths.get("util", "contacts.txt");
-//        List<String> contactsList = Files.readAllLines(contactsPath);
-//        for (int i = 0; i < contactsList.size(); i += 1) {
-//            System.out.println((i + 1) + ": " + contactsList.get(i));
-//        }
 
 
+    public static void addContact() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter First and Last Name, followed by the 10-digit phone number. ");
+        String userInput = sc.nextLine();
 
-//    public void addContact() {
-//        Input input = new Input();
-//        String userInput;
-//
-//        Files.write(
-//                Paths.get("util", "contacts.txt"),
-//                Arrays.listOf(userInput), // list with one item
-//                StandardOpenOption.APPEND
-//        );
-//    }
+
+         Files.write(
+                Paths.get("src", "contacts.txt"),
+                Arrays.asList(userInput), // list with one item
+                StandardOpenOption.APPEND
+        );
+    }
 
 
 
