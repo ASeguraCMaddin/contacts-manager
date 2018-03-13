@@ -18,7 +18,7 @@ public class ContactsManagerApplication {
 
         System.out.println("Welcome to your Contacts Manager!");
         System.out.println("Enter a number (0-4) to access the desired option!");
-
+git
         do {
             contactOptions();
             System.out.println("What would you like to do? ");
@@ -31,6 +31,7 @@ public class ContactsManagerApplication {
             } else if (userInput.equals("3")) {
 
             } else if (userInput.equals("4")) {
+
 
             }
 
@@ -45,8 +46,7 @@ public class ContactsManagerApplication {
     }
 
 
-
-    public static void contactOptions () {
+    public static void contactOptions() {
         System.out.println("0 -===- Exit");
         System.out.println("1 -===- View all contacts.");
         System.out.println("2 -===- Add a new contact.");
@@ -54,7 +54,7 @@ public class ContactsManagerApplication {
         System.out.println("4 -===- Delete an existing Contact");
     }
 
-    public void showAllContacts () {
+    public void showAllContacts() {
 //        Movie[] allMovies = MoviesArray.findAll();
 //        for (Movie movie : allMovies) {
 //            System.out.println("**---+---+---+---+---+---+---+---+---**");
@@ -74,8 +74,8 @@ public class ContactsManagerApplication {
 
         List<String> contactsClass = Files.readAllLines(Paths.get("util", "contacts.txt"));
 
-            for(int i = 0; i < contactsClass.size(); ++i) {
-                String Line = contactsClass.get(i);
+        for (int i = 0; i < contactsClass.size(); ++i) {
+            String Line = contactsClass.get(i);
             System.out.printf("%s: %s", i + 1, line);
         }
     }
@@ -90,7 +90,5 @@ public class ContactsManagerApplication {
                 StandardOpenOption.APPEND
         );
     }
-
-
 
 }
