@@ -2,6 +2,7 @@
 
 public class Contacts {
 
+
     private String name;
 
     private double phoneNumber;

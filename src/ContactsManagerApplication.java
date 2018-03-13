@@ -4,18 +4,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class ContactsManagerApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+//        Input input = new Input();
+         Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner();
+
         String userInput;
 
         System.out.println("Welcome to your Contacts Manager!");
@@ -56,19 +55,17 @@ public class ContactsManagerApplication {
         System.out.println("4 -===- Delete an existing Contact");
     }
 
-    public static List<String> showAllContacts() {
-        //creates filepath
-//        Path path = Paths.get(filepath);
+    public static void showAllContacts() throws IOException {
         Path contactsListPath = Paths.get("src", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsListPath);
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            System.out.println("**---+---+---+---+---+---+---+---+---**");
-            System.out.print("| ");
+        for (int i = 0; i < contactsList.size(); ++i) {
+//            System.out.println("**---+---+---+---+---+---+---+---+---**");
+//            System.out.print("| ");
             System.out.println((i + 1) + ": " + contactsList.get(i));
-            System.out.print("| ");
-            System.out.println("**---+---+---+---+---+---+---+---+---**");
+//            System.out.print("| ");
+//            System.out.println("**---+---+---+---+---+---+---+---+---**");
         }
-        return null;
+
     }
 
 
