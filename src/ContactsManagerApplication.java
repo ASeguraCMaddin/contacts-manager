@@ -1,19 +1,20 @@
-package util;
 
 
-import util.Input;
-
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+
 
 public class ContactsManagerApplication {
 
-    public static void main(String[] args) {
-        Input input = new Input();
+    public static void main(String[] args) throws IOException {
+//        Input input = new Input();
+         Scanner sc = new Scanner(System.in);
+
+
         String userInput;
 
         System.out.println("Welcome to your Contacts Manager!");
@@ -22,7 +23,7 @@ git
         do {
             contactOptions();
             System.out.println("What would you like to do? ");
-            userInput = input.getString();
+            userInput = sc.next();
 
             if (userInput.equals("1")) {
                 showAllContacts();
@@ -54,16 +55,25 @@ git
         System.out.println("4 -===- Delete an existing Contact");
     }
 
+<<<<<<< HEAD
     public void showAllContacts() {
 //        Movie[] allMovies = MoviesArray.findAll();
 //        for (Movie movie : allMovies) {
+=======
+    public static void showAllContacts() throws IOException {
+        Path contactsListPath = Paths.get("src", "contacts.txt");
+        List<String> contactsList = Files.readAllLines(contactsListPath);
+        for (int i = 0; i < contactsList.size(); ++i) {
+>>>>>>> ceb4958fad1a529bea508761c2e072468ce41dee
 //            System.out.println("**---+---+---+---+---+---+---+---+---**");
 //            System.out.print("| ");
-//            System.out.println(movie.getNameIs() + " -- " + movie.getCategoryOf());
+            System.out.println((i + 1) + ": " + contactsList.get(i));
 //            System.out.print("| ");
 //            System.out.println("**---+---+---+---+---+---+---+---+---**");
-//
-//        }
+        }
+
+    }
+
 
 
 //        Path contactsPath = Paths.get("util", "contacts.txt");
@@ -72,6 +82,7 @@ git
 //            System.out.println((i + 1) + ": " + contactsList.get(i));
 //        }
 
+<<<<<<< HEAD
         List<String> contactsClass = Files.readAllLines(Paths.get("util", "contacts.txt"));
 
         for (int i = 0; i < contactsClass.size(); ++i) {
@@ -79,16 +90,19 @@ git
             System.out.printf("%s: %s", i + 1, line);
         }
     }
+=======
+>>>>>>> ceb4958fad1a529bea508761c2e072468ce41dee
 
-    public void addContact() {
-        Input input = new Input();
-        String userInput;
 
-        Files.write(
-                Paths.get("util", "contacts.txt"),
-                Arrays.listOf(userInput), // list with one item
-                StandardOpenOption.APPEND
-        );
-    }
+//    public void addContact() {
+//        Input input = new Input();
+//        String userInput;
+//
+//        Files.write(
+//                Paths.get("util", "contacts.txt"),
+//                Arrays.listOf(userInput), // list with one item
+//                StandardOpenOption.APPEND
+//        );
+//    }
 
 }
