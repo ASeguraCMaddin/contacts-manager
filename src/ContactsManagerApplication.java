@@ -21,7 +21,9 @@ public class ContactsManagerApplication {
 
         String userInput;
 
-        System.out.println("Welcome to your Contacts Manager!");
+        System.out.println("Initializing Contacts Manager Application................");
+        System.out.println("1010101 10100101 101 0001 010101 1010100010 101001010101111101");
+        System.out.println("Hello and Welcome to your Contacts Manager!");
         System.out.println("Enter a number (0,1,2,3,4) to access the desired option!");
 
         do {
@@ -30,6 +32,7 @@ public class ContactsManagerApplication {
             userInput = sc.next();
 
             if (userInput.equals("1")) {
+                System.out.println("Displaying registered Contacts.................");
                 System.out.println("\n Contacts Manager table base Initialized!");
                 System.out.println("\n       Name       |   Phone Number   |");
                 System.out.println("-------------------| ---------------- |");
@@ -65,6 +68,7 @@ public class ContactsManagerApplication {
 
     //displays all the contacts from contacts.txt
     public static void showAllContacts() throws IOException {
+
         Path contactsListPath = Paths.get("src", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsListPath);
         for (int i = 0; i < contactsList.size(); ++i) {
@@ -97,7 +101,10 @@ public class ContactsManagerApplication {
                 Arrays.asList(userInput), // list with one item
                 StandardOpenOption.APPEND
         );
+        System.out.println(userInput + " has been added!");
+        System.out.println("addContact successful!");
     }
+
 
     // enables user to search by first name, last name, or 10-digit phone#
     public static void searchByName() throws IOException {
@@ -105,21 +112,25 @@ public class ContactsManagerApplication {
         System.out.println("To search for a contact, please enter either their Last or First name. Or even by their 10-digit phone number. ");
         String userInput = sc.nextLine();
 
+        System.out.println("Please wait.........");
+        System.out.println("**-+=+-****-+=+-****-+=+-****-+=+-****-+=+-****-+=+-****-+=+-****-+=+-**");
+        System.out.println("Search for user input successful!");
+
         List<String> lines = Files.readAllLines(Paths.get("src", "contacts.txt"));
-//                List<String> newList = new ArrayList<>();
             for (String line : lines) {
                 if (line.contains(userInput)) {
                     System.out.println(userInput + " was found!");
+                    System.out.println("Displaying inputted search contact...................");
                     System.out.println(line);
-
-//                    continue;
                     } else {
                     System.out.println("Your input does not match any contacts, Please try again ");
                     }
-//
+
                     }
-//
+
             }
+
+
         //get delete function to work
     public static void deleteContact() throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -134,9 +145,10 @@ public class ContactsManagerApplication {
                 continue;
             }
             newList.add(line);
-        }      //FIX THIS
+        }      //FIXED IT
         Files.write(Paths.get("src", "contacts.txt"), newList);
-
+        System.out.println(userInput + " has been deleted!");
+        System.out.println("deleteContact successful!");
         }
 
 
