@@ -7,10 +7,10 @@ public class Contacts {
 
     public double phoneNumber;
 
-    public Contacts(String[] fields) {
-        name=fields[0];
-        phoneNumber= Double.parseDouble(fields[0]);
-    }
+//    public Contacts(String[] fields) {
+//        name=fields[0];
+//        phoneNumber= Double.parseDouble(fields[0]);
+//    }
 
     public Contacts(String name, double phoneNumber) {
         this.name = name;

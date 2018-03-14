@@ -22,7 +22,7 @@ public class ContactsManagerApplication {
         String userInput;
 
         System.out.println("Welcome to your Contacts Manager!");
-        System.out.println("Enter a number (0-4) to access the desired option!");
+        System.out.println("Enter a number (0,1,2,3,4) to access the desired option!");
 
         do {
             contactOptions();
@@ -30,7 +30,7 @@ public class ContactsManagerApplication {
             userInput = sc.next();
 
             if (userInput.equals("1")) {
-                System.out.println("\nHere is your Contacts table!");
+                System.out.println("\n Contacts Manager table base Initialized!");
                 System.out.println("\n       Name       |   Phone Number   |");
                 System.out.println("-------------------| ---------------- |");
                 showAllContacts();
@@ -39,7 +39,7 @@ public class ContactsManagerApplication {
             } else if (userInput.equals("3")) {
                 searchByName();
             } else if (userInput.equals("4")) {
-
+                deleteContact();
             }
 
             System.out.println();
@@ -85,7 +85,6 @@ public class ContactsManagerApplication {
     }
 
 
-
     //allows user to add contacts
     public static void addContact() throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -100,6 +99,7 @@ public class ContactsManagerApplication {
         );
     }
 
+    // enables user to search by first name, last name, or 10-digit phone#
     public static void searchByName() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("To search for a contact, please enter either their Last or First name. Or even by their 10-digit phone number. ");
@@ -111,6 +111,7 @@ public class ContactsManagerApplication {
                 if (line.contains(userInput)) {
                     System.out.println(userInput + " was found!");
                     System.out.println(line);
+
 //                    continue;
                     } else {
                     System.out.println("Your input does not match any contacts, Please try again ");
@@ -119,6 +120,27 @@ public class ContactsManagerApplication {
                     }
 //
             }
+        //get delete function to work
+    public static void deleteContact() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("To delete a contact, please enter either their Last or First name. Or even by their 10-digit phone number. ");
+        String userInput = sc.nextLine();
+
+        List<String> lines = Files.readAllLines(Paths.get("src", "contacts.txt"));
+        List<String> newList = new ArrayList<>();
+        for (String line : lines) {
+            if (line.contains(userInput)) {
+                newList.remove(userInput);
+                continue;
+            }
+            newList.add(line);
+        }      //FIX THIS
+        Files.write(Paths.get("src", "contacts.txt"), newList);
+
+        }
+
+
+}
 
 
 
@@ -126,7 +148,6 @@ public class ContactsManagerApplication {
 
 
 
-    }
 
 
 
